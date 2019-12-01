@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localmysql
-Source Server Version : 50553
+Source Server         : localhost
+Source Server Version : 50626
 Source Host           : localhost:3306
 Source Database       : 520makati
 
 Target Server Type    : MYSQL
-Target Server Version : 50553
+Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2019-12-01 19:35:40
+Date: 2019-12-02 02:53:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `admin`
+-- Table structure for admin
 -- ----------------------------
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
@@ -34,10 +34,10 @@ CREATE TABLE `admin` (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('1', 'admin', 'eyJpdiI6Ink0S0tEemtWN2RzTDhpXC9cLzNlRk5Idz09IiwidmFsdWUiOiJnU1RsK1BpMmtKemlXc2VsUzAyb2xBPT0iLCJtYWMiOiJjMTFiM2RjOTNmYmU3ZjQ4OWM5M2ZhZDgxOTVlNzkyOTNmMmRkNjk5MjMwNzU2NDE0YmRiZDRkYjNhYWI2ZjZlIn0=', '1', '127.0.0.1', '2018-07-09 13:41:55', '2019-12-01 18:24:18', '2019-12-01 06:24:18');
+INSERT INTO `admin` VALUES ('1', 'admin', 'eyJpdiI6Ink0S0tEemtWN2RzTDhpXC9cLzNlRk5Idz09IiwidmFsdWUiOiJnU1RsK1BpMmtKemlXc2VsUzAyb2xBPT0iLCJtYWMiOiJjMTFiM2RjOTNmYmU3ZjQ4OWM5M2ZhZDgxOTVlNzkyOTNmMmRkNjk5MjMwNzU2NDE0YmRiZDRkYjNhYWI2ZjZlIn0=', '1', '127.0.0.1', '2018-07-09 13:41:55', '2019-12-01 20:47:03', '2019-12-01 08:47:03');
 
 -- ----------------------------
--- Table structure for `attribute`
+-- Table structure for attribute
 -- ----------------------------
 DROP TABLE IF EXISTS `attribute`;
 CREATE TABLE `attribute` (
@@ -59,7 +59,7 @@ INSERT INTO `attribute` VALUES ('6', '联系微信', 'sdf15dsffg');
 INSERT INTO `attribute` VALUES ('7', '支付接口地址', 'http://www.manhuabackend.com/pay');
 
 -- ----------------------------
--- Table structure for `category`
+-- Table structure for category
 -- ----------------------------
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
@@ -83,7 +83,7 @@ INSERT INTO `category` VALUES ('3', '完结韩漫', '0', '/hanman/1', '98', '1',
 INSERT INTO `category` VALUES ('4', '热门韩漫', '0', '/hanman/hot', '97', '1', '2018-11-08 14:09:26', '2018-11-08 14:09:26');
 
 -- ----------------------------
--- Table structure for `girlphotos`
+-- Table structure for girlphotos
 -- ----------------------------
 DROP TABLE IF EXISTS `girlphotos`;
 CREATE TABLE `girlphotos` (
@@ -107,7 +107,7 @@ INSERT INTO `girlphotos` VALUES ('7', '2', '/public/uploads/20191201/4.jpg');
 INSERT INTO `girlphotos` VALUES ('8', '2', '/public/uploads/20191201/5.jpg');
 
 -- ----------------------------
--- Table structure for `girls`
+-- Table structure for girls
 -- ----------------------------
 DROP TABLE IF EXISTS `girls`;
 CREATE TABLE `girls` (
@@ -117,21 +117,23 @@ CREATE TABLE `girls` (
   `cover` varchar(150) NOT NULL,
   `intro` text NOT NULL COMMENT '简介',
   `service` text COMMENT '服务内容',
+  `videolist` text,
   `views` int(8) NOT NULL DEFAULT '0' COMMENT '浏览次数',
-  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:上架 1:在上钟 2:休息中 3:下架',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:有空 1:在上钟 2:休息中 3:下架 9:已删除',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of girls
 -- ----------------------------
-INSERT INTO `girls` VALUES ('1', 'Violet', '2', '', 'intro', 'service', '0', '0', '2019-12-01 13:17:00', '2019-12-01 13:17:02');
-INSERT INTO `girls` VALUES ('2', 'Shine', '2', '', 'intro', 'service', '0', '0', '2019-12-01 13:18:42', '2019-12-01 13:18:37');
+INSERT INTO `girls` VALUES ('1', 'Violet', '2', '', 'intro', 'service', 'http://baidu.com\r\nhttp://google.com', '0', '0', '2019-12-01 23:19:02', '2019-12-01 13:17:02');
+INSERT INTO `girls` VALUES ('2', 'Shine', '2', '', 'intro', 'service', null, '0', '0', '2019-12-01 13:18:42', '2019-12-01 13:18:37');
+INSERT INTO `girls` VALUES ('3', 'test1', '6', '/public/uploads/20191201/15752085059XgRo.jpg', 'aab', 'http://baidu.com\r\nhttp://google.com1', '', '0', '1', '2019-12-01 23:19:49', '2019-12-01 23:19:49');
 
 -- ----------------------------
--- Table structure for `manhua`
+-- Table structure for manhua
 -- ----------------------------
 DROP TABLE IF EXISTS `manhua`;
 CREATE TABLE `manhua` (
@@ -390,7 +392,7 @@ INSERT INTO `manhua` VALUES ('234', '1', '恐懼', '', '/public/uploads/20181117
 INSERT INTO `manhua` VALUES ('235', '1', '腹黑女的異想世界', '', '/public/uploads/20181117/1542396975VFP9x.jpg', '她們大膽的妄想及日常，虛構與寫實', '179', '0', '0', '2018-11-17 03:36:20', '2018-11-17 03:36:20', '2018-11-17 13:13:43');
 
 -- ----------------------------
--- Table structure for `manhuachapters`
+-- Table structure for manhuachapters
 -- ----------------------------
 DROP TABLE IF EXISTS `manhuachapters`;
 CREATE TABLE `manhuachapters` (
@@ -416,7 +418,7 @@ CREATE TABLE `manhuachapters` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `manhuaphotos`
+-- Table structure for manhuaphotos
 -- ----------------------------
 DROP TABLE IF EXISTS `manhuaphotos`;
 CREATE TABLE `manhuaphotos` (
@@ -677,7 +679,7 @@ INSERT INTO `manhuaphotos` VALUES ('242', '20', '/217/20/1542431230aaa164.jpg', 
 INSERT INTO `manhuaphotos` VALUES ('243', '20', '/217/20/1542431230aaa288.jpg', '30', '1');
 
 -- ----------------------------
--- Table structure for `nation`
+-- Table structure for nation
 -- ----------------------------
 DROP TABLE IF EXISTS `nation`;
 CREATE TABLE `nation` (
@@ -700,7 +702,7 @@ INSERT INTO `nation` VALUES ('7', '韩国', null);
 INSERT INTO `nation` VALUES ('8', '俄罗斯', null);
 
 -- ----------------------------
--- Table structure for `statistics`
+-- Table structure for statistics
 -- ----------------------------
 DROP TABLE IF EXISTS `statistics`;
 CREATE TABLE `statistics` (
@@ -724,7 +726,7 @@ INSERT INTO `statistics` VALUES ('4', '1', '127.0.0.1', '浏览器输入网址',
 INSERT INTO `statistics` VALUES ('5', '8', '127.0.0.1', 'http://www.manhuadailibackend.com/backend/showindex', 'SINGAPORE', '2018-11-09 07:15:52');
 
 -- ----------------------------
--- Table structure for `users`
+-- Table structure for users
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (

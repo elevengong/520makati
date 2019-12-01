@@ -45,12 +45,14 @@ Route::group(['middleware' => ['web','admin.login']],function () {
 
     //贵妃管理
     Route::any('/backend/girls/girllist','backend\GirlsController@girllist');
+    Route::any('/backend/girls/girladd','backend\GirlsController@girladd');
+    Route::any('/backend/girls/girledit/{id}','backend\GirlsController@girledit')->where(['id' => '[0-9]+']);
+    Route::delete('/backend/girls/delete/{id}','backend\GirlsController@delete')->where(['id' => '[0-9]+']);
+    Route::any('/backend/girls/girlphotolist/{id}','backend\GirlsController@girlphotolist')->where(['id' => '[0-9]+']);
+    Route::delete('/backend/girls/girlphotodelete/{id}','backend\GirlsController@girlphotodelete')->where(['id' => '[0-9]+']);
 
 
 
-
-    Route::any('/backend/manhua/addmanhua','backend\ManhuaController@addmanhua');
-    Route::any('/backend/manhua/editmanhua/{manhua_id}','backend\ManhuaController@editmanhua')->where(['manhua_id' => '[0-9]+']);
     Route::any('/backend/manhua/chapterlist/{manhua_id}','backend\ManhuaController@chapterlist')->where(['manhua_id' => '[0-9]+']);
     Route::any('/backend/manhua/addchapter','backend\ManhuaController@addchapter');
     Route::any('/backend/manhua/editchapter/{chapter_id}','backend\ManhuaController@editchapter')->where(['chapter_id' => '[0-9]+']);

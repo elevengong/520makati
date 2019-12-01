@@ -10,5 +10,5 @@ class Girls extends Model
     protected $primaryKey = 'id';
     //public $timestamps = '';
 
-    protected $fillable = ['name','nation_id','cover','intro','service','views','status'];
+    protected $fillable = ['name','nation_id','cover','intro','service','videolist','views','status'];
 }

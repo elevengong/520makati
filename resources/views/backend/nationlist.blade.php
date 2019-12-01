@@ -35,6 +35,7 @@
                                     <a title="编辑" href="javascript:nationedit({{$data['id']}})" class="ml-5"
                                        style="text-decoration:none">
                                         <i class="Hui-iconfont">&#xe6df;</i>
+                                    </a>
                                     <a title="删除" href="javascript:nationdel('{{$data['id']}}')" class="ml-5"
                                        style="text-decoration:none">
                                         <i class="Hui-iconfont">&#xe6e2;</i>

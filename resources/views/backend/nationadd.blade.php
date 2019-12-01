@@ -44,7 +44,7 @@
         </div>
         <div class="col-xs-12 row cl" style="text-align: center;">
             <div class="formControls col-xs-12 col-sm-12">
-                <input type="button" onclick="nationaddprocess()" class="btn btn-primary" value="修改" id="btn_add_ok" />
+                <input type="button" onclick="nationaddprocess()" class="btn btn-primary" value="添加" id="btn_add_ok" />
             </div>
         </div>
 
