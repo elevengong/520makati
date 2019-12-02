@@ -8,7 +8,7 @@ class Girlphotos extends Model
 {
     protected $table = 'girlphotos';
     protected $primaryKey = 'id';
-    //public $timestamps = '';
+    public $timestamps = '';
 
     protected $fillable = ['g_id','photo'];
 }

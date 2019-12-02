@@ -20,6 +20,7 @@
                         <tr class="text-c">
                             <th width="80">ID</th>
                             <th width="100">属性名称</th>
+                            <th width="80">Key</th>
                             <th width="80">Value</th>
                             <th width="100">操作</th>
                         </tr>
@@ -30,11 +31,16 @@
                             <tr class="text-c">
                                 <td>{{$data['id']}}</td>
                                 <td>{{$data['name']}}</td>
+                                <td>{{$data['key']}}</td>
                                 <td>{{$data['value']}}</td>
                                 <td class="td-manage">
                                     <a title="编辑" href="javascript:edit_static({{$data['id']}})" class="ml-5"
                                        style="text-decoration:none">
                                         <i class="Hui-iconfont">&#xe6df;</i>
+                                    </a>
+                                    <a title="删除" href="javascript:del_static('{{$data['id']}}')" class="ml-5"
+                                       style="text-decoration:none">
+                                        <i class="Hui-iconfont">&#xe6e2;</i>
                                     </a>
                                 </td>
                             </tr>

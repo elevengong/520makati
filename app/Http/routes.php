@@ -15,7 +15,8 @@ Route::group(['middleware' => ['web']],function () {
 
     //---------------------前端------------------------
     Route::get('/','frontend\IndexController@index');
-
+    Route::get('/beauty/{id}','frontend\IndexController@beauty')->where(['id' => '[0-9]+']);
+    Route::get('/contact','frontend\IndexController@contact');
 
 
 
@@ -50,31 +51,19 @@ Route::group(['middleware' => ['web','admin.login']],function () {
     Route::delete('/backend/girls/delete/{id}','backend\GirlsController@delete')->where(['id' => '[0-9]+']);
     Route::any('/backend/girls/girlphotolist/{id}','backend\GirlsController@girlphotolist')->where(['id' => '[0-9]+']);
     Route::delete('/backend/girls/girlphotodelete/{id}','backend\GirlsController@girlphotodelete')->where(['id' => '[0-9]+']);
+    Route::any('/backend/girls/girlphotoadd/{id}','backend\GirlsController@girlphotoadd')->where(['id' => '[0-9]+']);
 
 
-
-    Route::any('/backend/manhua/chapterlist/{manhua_id}','backend\ManhuaController@chapterlist')->where(['manhua_id' => '[0-9]+']);
-    Route::any('/backend/manhua/addchapter','backend\ManhuaController@addchapter');
-    Route::any('/backend/manhua/editchapter/{chapter_id}','backend\ManhuaController@editchapter')->where(['chapter_id' => '[0-9]+']);
-    Route::get('/backend/manhua/viewchapterphotos/{chapter_id}','backend\ManhuaController@viewchapterphotos')->where(['chapter_id' => '[0-9]+']);
-    Route::any('/backend/manhua/savechapterphotos/{chapter_id}','backend\ManhuaController@savechapterphotos')->where(['chapter_id' => '[0-9]+']);
 
     //设置常用属性
     Route::get('/backend/attributelist','backend\IndexController@attributelist');
     Route::any('/backend/addstatic','backend\IndexController@addstatic');
     Route::any('/backend/editstatic/{id}','backend\IndexController@editstatic')->where(['id' => '[0-9]+']);
+    Route::delete('/backend/delstatic/{id}','backend\IndexController@delstatic')->where(['id' => '[0-9]+']);
 
     //图片上传
     Route::any('/backend/uploadphoto/{id}','MyController@uploadphoto');
 });
-
-
-//支付接口
-Route::get('/pay','backend\PaymentController@pay');
-Route::post('/paymentpage','backend\PaymentController@paymentpage');
-
-Route::post('/callback','backend\PaymentController@callBack');
-//支付回调
 
 
 

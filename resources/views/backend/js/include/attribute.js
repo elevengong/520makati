@@ -47,11 +47,17 @@ function openstatic() {
 
 function add_static() {
     var name  = $.trim( $('#name').val() );
+    var key = $.trim( $('#key').val() );
     var value = $.trim( $('#value').val() );
 
     if(name == '')
     {
         layer.msg('属性代号不能为空');
+        return false;
+    }
+    if(key == '')
+    {
+        layer.msg('Key不能为空');
         return false;
     }
     if(value == '')
@@ -98,11 +104,17 @@ function edit_static(set_id) {
 
 function edit_static_handup(id) {
     var name  = $.trim( $('#name').val() );
+    var key = $.trim( $('#key').val() );
     var value = $.trim( $('#value').val() );
 
     if(name == '')
     {
         layer.msg('属性代号不能为空');
+        return false;
+    }
+    if(key == '')
+    {
+        layer.msg('Key不能为空');
         return false;
     }
     if(value == '')
@@ -132,4 +144,30 @@ function edit_static_handup(id) {
         }
     });
 
+}
+
+function del_static(id) {
+    layer.confirm("是否真的删除该设置？", function() {
+        $.ajax({
+            type: "delete",
+            url: "/backend/delstatic/" + id,
+            dataType: 'json',
+            headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
+            success: function (data) {
+                if (data.status == 0) {
+                    layer.msg(data.msg);
+
+                } else {
+                    layer.msg( data.msg ,function () {
+                        window.location.reload();
+                    });
+                }
+                return false;
+            },
+            error: function (data) {
+                layer.msg(data.msg);
+                return false;
+            }
+        });
+    });
 }

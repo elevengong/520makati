@@ -32,6 +32,12 @@
             </div>
         </div>
         <div class="col-xs-12 row cl">
+            <label class="form-label col-xs-3 col-sm-3">Key：</label>
+            <div class="col-xs-9 col-sm-9">
+                <input type="text" class="input-text" value="" id="key" name="key" />
+            </div>
+        </div>
+        <div class="col-xs-12 row cl">
             <label class="form-label col-xs-3 col-sm-3">Value：</label>
             <div class="col-xs-9 col-sm-9">
                 <input type="text" class="input-text" value="" id="value" name="value" />

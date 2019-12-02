@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Model\Girls;
 use App\Model\Nation;
 use App\Model\Girlphotos;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -104,7 +105,7 @@ class GirlsController extends MyController
     public function girlphotolist($id)
     {
         $photos = Girlphotos::where('g_id',$id)->orderBy('id','asc')->get()->toArray();
-        return view('backend.girlphotolist',['photos' => $photos]);
+        return view('backend.girlphotolist',['photos' => $photos,'id' => $id]);
     }
 
     public function girlphotodelete($id){
@@ -115,6 +116,27 @@ class GirlsController extends MyController
         } else {
             $data = array('status' => 0, 'msg' => "删除失败");
             return json_encode($data);
+        }
+    }
+
+    public function girlphotoadd(Request $request,$id)
+    {
+        if($request->isMethod('post'))
+        {
+            $input=$request->all();
+            unset($input['_token']);
+            $result = Girlphotos::create($input);
+            if($result->id)
+            {
+                $reData['status'] = 1;
+                $reData['msg'] = "添加成功";
+            }else{
+                $reData['status'] = 0;
+                $reData['msg'] = "添加失败";
+            }
+            echo json_encode($reData);
+        }else{
+            return view('backend.girlphotoadd',['id' => $id]);
         }
     }
 

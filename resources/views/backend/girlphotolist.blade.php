@@ -9,8 +9,13 @@
 
                 <div class="cl pd-5 bg-1 bk-gray mt-20">
                 <span class="l">
-                    <a href="javascript:history.go(-1)" id="btn_add_category" class="btn btn-primary radius" onclick="opennewgirl();">
+                    <a href="javascript:history.go(-1)" id="btn_add_category" class="btn btn-primary radius">
                          返回上一页
+                    </a>
+                </span>
+                    <span class="l" style="margin-left: 30px;">
+                    <a href="javascript:;" id="btn_add_category" class="btn btn-primary radius" onclick="opennewgirlphoto({{$id}});">
+                        <i class="Hui-iconfont">&#xe600;</i> 添加图片
                     </a>
                 </span>
                 </div>

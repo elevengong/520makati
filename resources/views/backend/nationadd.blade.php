@@ -12,9 +12,9 @@
     <link href="<?php echo asset( "/resources/views/backend/static/h-ui.admin/css/style.css") ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo asset( "/resources/views/backend/static/Hui-iconfont/1.0.8/iconfont.css") ?>" rel="stylesheet" type="text/css" />
 
-    <title>添加分类</title>
-    <meta name="keywords" content="添加">
-    <meta name="description" content="添加分类">
+    <title>添加国家</title>
+    <meta name="keywords" content="添加国家">
+    <meta name="description" content="添加国家">
 </head>
 <body>
 <script type="text/javascript" src="<?php echo asset( "/resources/views/backend/js/jquery.min.1.9.1.js") ?>"></script>

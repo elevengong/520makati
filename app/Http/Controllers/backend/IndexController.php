@@ -74,8 +74,9 @@ class IndexController extends MyController
     public function editstatic(Request $request,$id){
         if($request->isMethod('post')){
             $name = request()->input('name');
+            $key = request()->input('key');
             $value = request()->input('value');
-            $result = Attribute::where('id',$id)->update(['name'=> $name, 'value'=> $value]);
+            $result = Attribute::where('id',$id)->update(['name'=> $name, 'key'=> $key, 'value'=> $value]);
             if($result)
             {
                 $reData['status'] = 1;
@@ -88,6 +89,17 @@ class IndexController extends MyController
         }else{
             $data = Attribute::find($id)->toArray();
             return view('backend.editstatic',compact('data'));
+        }
+    }
+
+    public function delstatic($id){
+        $result = Attribute::destroy($id);
+        if ($result) {
+            $data = array('status' => 1, 'msg' => "删除成功");
+            return json_encode($data);
+        } else {
+            $data = array('status' => 0, 'msg' => "删除失败");
+            return json_encode($data);
         }
     }
 

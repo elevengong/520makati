@@ -3071,7 +3071,7 @@ All this is done for any sub-level being entered.
 * ----------------------------------------------------------------------------
 */
 .csmx-section {
-    padding: 43px 0;
+    padding: 23px 0;
 }
 .csmx-section.no-padding {
     padding: 0;
@@ -3090,7 +3090,7 @@ All this is done for any sub-level being entered.
 }
 
 .csmx-footer-widgets {
-    padding: 50px 0 30px;
+    padding: 20px 0 20px;
 }
 
 .page-fullwidth .container {
@@ -3790,7 +3790,7 @@ All this is done for any sub-level being entered.
 }
 
 .csmx-post-nav {
-    margin-bottom: 40px;
+    margin-bottom: 1px;
     border: 1px dotted #ccc;
     border-width: 1px 0;
     width: 100%;
@@ -6313,4 +6313,12 @@ body.error404 p {
 }
 #csmx-demo-switcher .csmx-demo-thumb:hover .overlay, #csmx-demo-switcher .csmx-demo-thumb:hover .title {
     opacity: 1;
+}
+
+.contactlist li{
+    list-style-type:none;
+    width:200px;
+    float: left;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
